@@ -10,6 +10,7 @@ using Demo.RestApi.Domain.Models.Session;
 using Demo.RestApi.Domain.Services;
 using Demo.RestApi.Domain.Services.ExampleDataProcessors;
 using Demo.RestApi.Web.API.V1;
+using Newtonsoft.Json;
 
 namespace Demo.RestApi.Web.API.V2
 {
@@ -64,6 +65,21 @@ namespace Demo.RestApi.Web.API.V2
 				throw ResponseBuilderService.GenerateErrorResponse("No Suitable Processor Found");
 			}
 			return exampleDataProcessor.Process(dataObject);
+		}
+
+		[Route("test-jsonp")]
+		[HttpGet]
+		[AllowAnonymous]
+		public virtual object TestJsonp([FromUri]string callback = null)
+		{
+			var dummyResponseObject = new
+				                          {
+					                          Id = 1,
+					                          Name = "Test",
+					                          Value = 123456
+				                          };
+
+			return dummyResponseObject;
 		}
 	}
 }

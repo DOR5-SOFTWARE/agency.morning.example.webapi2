@@ -14,6 +14,8 @@ namespace Demo.RestApi.Web
 			WebApiConfig.ConfigureDataFormatters(GlobalConfiguration.Configuration);
 
 			FilterConfig.RegisterWebApiFilters(GlobalConfiguration.Configuration.Filters, GlobalConfiguration.Configuration.DependencyResolver);
+
+			GlobalConfiguration.Configuration.EnsureInitialized();
 		}
 	}
 }

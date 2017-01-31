@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using WebApiContrib.Formatting.Jsonp;
 
 namespace Demo.RestApi.Web.App_Start
 {
@@ -19,6 +20,8 @@ namespace Demo.RestApi.Web.App_Start
 		public static void ConfigureDataFormatters(HttpConfiguration config)
 		{
 			config.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
+
+			GlobalConfiguration.Configuration.AddJsonpFormatter();
 
 			var jsonSetting = new JsonSerializerSettings();
 

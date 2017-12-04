@@ -1,11 +1,11 @@
-using System.Web.Http;
+﻿using System.Web.Http;
 using WebActivatorEx;
-using Demo.RestApi.Web;
+using $rootnamespace$;
 using Swashbuckle.Application;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace Demo.RestApi.Web
+namespace $rootnamespace$
 {
     public class SwaggerConfig
     {
@@ -32,7 +32,7 @@ namespace Demo.RestApi.Web
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "Demo.RestApi.Web");
+                        c.SingleApiVersion("v1", "$rootnamespace$");
 
                         // If you want the output Swagger docs to be indented properly, enable the "PrettyPrint" option.
                         //
